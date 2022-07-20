@@ -1,6 +1,10 @@
 # Update script
 
+Write-Host "Pip version: " -ForegroundColor Blue -NoNewline
 pip --version
+
+Write-Output " "
+Write-Host "Git version: " -ForegroundColor Green -NoNewline
 git --version
 
 Write-Output " "
