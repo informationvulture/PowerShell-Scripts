@@ -27,11 +27,20 @@ else
 {
     Write-Host " $LastUpdate" -ForegroundColor DarkRed
     Write-Output " "
-    Write-Host "Updating date..." -ForegroundColor DarkYellow
-    $new_date = (Get-Date -format "yyyy-MM-dd")
-    Set-Content C:\scriptfiles\lstupd.txt $new_date
-    Write-Host "UPDATED ON" -NoNewline
-    Write-Host " $new_date" -ForegroundColor DarkGreen
+    
+    $ans = Read-Host "Do you want to update the date? (y/n)"
+    if ($ans -eq "y")
+    {
+        Write-Host "Updating date..." -ForegroundColor DarkYellow
+        $new_date = (Get-Date -format "yyyy-MM-dd")
+        Set-Content C:\scriptfiles\lstupd.txt $new_date
+        Write-Host "UPDATED ON" -NoNewline
+        Write-Host " $new_date" -ForegroundColor DarkGreen
+    }
+    else
+    {
+        Write-Host "Not updating date." -ForegroundColor DarkYellow
+    }
 }
 
 
