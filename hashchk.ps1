@@ -5,8 +5,9 @@
 
 # Get the file hashes
 $hashDest = Read-Host "Enter the hash of the source file: ";
+$algo = Read-Host "Enter has in CAPS {MD5, SHA256}: ";
 $fileSrc = $args;
-$hashSrc = Get-FileHash $fileSrc -Algorithm SHA256 | ForEach-Object{$_.Hash};
+$hashSrc = Get-FileHash $fileSrc -Algorithm $algo | ForEach-Object{$_.Hash};
 
 # Compare the hashes
 If ($hashSrc -ne $hashDest)
